@@ -1,0 +1,9 @@
+#!/bin/zsh
+cat <<PACKAGES | xargs gem install
+	dbox
+	bundler
+	gist
+	jekyll
+	rake (10.1.0)
+	travis
+PACKAGES
