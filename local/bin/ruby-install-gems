@@ -4,6 +4,6 @@ cat <<PACKAGES | xargs gem install
 	bundler
 	gist
 	jekyll
-	rake (10.1.0)
+	rake
 	travis
 PACKAGES
