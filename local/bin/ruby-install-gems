@@ -4,6 +4,7 @@ cat <<PACKAGES | xargs gem install
 	bundler
 	gist
 	jekyll
+  mdl
 	rake
 	travis
 PACKAGES
