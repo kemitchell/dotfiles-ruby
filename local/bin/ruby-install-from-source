@@ -1,0 +1,16 @@
+#!/bin/zsh
+set -e
+
+TAG="v${1-2_3_0}"
+SOURCE="$HOME/.local/source/ruby"
+
+mkdir -p "$(dirname "$SOURCE")"
+git clone https://github.com/ruby/ruby "$SOURCE"
+cd "$SOURCE"
+
+git checkout "$TAG"
+autoconf
+./configure --prefix="$HOME/.local"
+
+make
+make install
