@@ -1,0 +1,22 @@
+#!/bin/zsh
+set -e
+
+TAG="v${1-2_3_4}"
+SOURCE="$HOME/.local/source/ruby"
+
+mkdir -p "$(dirname "$SOURCE")"
+if [ ! -d "$SOURCE" ]; then
+  git clone https://github.com/ruby/ruby "$SOURCE"
+fi
+cd "$SOURCE"
+git reset --hard
+
+sudo apt-get build-dep ruby2.1
+
+git checkout "$TAG"
+autoconf
+./configure --prefix="$PREFIX"
+
+make clean
+make
+make install
