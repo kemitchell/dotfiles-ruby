@@ -9,9 +9,10 @@ if [ ! -d "$SOURCE" ]; then
   git clone https://github.com/ruby/ruby "$SOURCE"
 fi
 cd "$SOURCE"
+git fetch origin
 git reset --hard
 
-sudo apt-get build-dep ruby2.1
+sudo apt-get -y build-dep ruby2.1
 
 git checkout "$TAG"
 autoconf
