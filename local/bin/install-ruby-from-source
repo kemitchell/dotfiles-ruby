@@ -1,7 +1,7 @@
 #!/bin/zsh
 set -e
 
-TAG="v${1-$(latest-ruby-version | sed 's/\./_/g')}"
+TAG="v${1-$(get-current-ruby-version | sed 's/\./_/g')}"
 SOURCE="$HOME/.local/source/ruby"
 
 mkdir -p "$(dirname "$SOURCE")"
