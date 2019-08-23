@@ -9,7 +9,7 @@ if [ ! -d "$SOURCE" ]; then
   git clone https://github.com/ruby/ruby "$SOURCE"
 fi
 cd "$SOURCE"
-git fetch origin
+git fetch origin --tags
 git reset --hard
 
 sudo apt-get -y build-dep ruby2.3
