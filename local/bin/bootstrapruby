@@ -1,4 +1,4 @@
 #!/bin/zsh
 set -e
-install-ruby-from-source
-install-ruby-gems
+installrubyfromsource
+installrubygems
