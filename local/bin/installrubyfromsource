@@ -12,7 +12,7 @@ cd "$SOURCE"
 git fetch origin --tags
 git reset --hard
 
-sudo apt-get -y build-dep ruby2.3
+sudo apt-get -y build-dep ruby2.5
 
 git checkout "$TAG"
 autoconf
