@@ -1,2 +1,2 @@
-#!/usr/bin/zsh
+#!/bin/sh
 curl -s "https://www.ruby-lang.org/en/downloads/" | grep -oP "The current stable version is \K\d+\.\d+\.\d+"
