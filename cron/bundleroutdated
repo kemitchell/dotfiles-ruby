@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 
 if [ -z "$1" ]; then
@@ -6,7 +7,7 @@ if [ -z "$1" ]; then
 fi
 
 tmp=$(mktemp -d)
-function cleanup () {
+cleanup () {
   rm -rf "$tmp"
 }
 trap cleanup EXIT
