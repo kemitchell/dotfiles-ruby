@@ -1,8 +1,8 @@
 #!/bin/sh
 cat <<PACKAGES | xargs gem install
-	bundler
-	gist
-	jekyll
-	rake
-  rubocop
+bundler
+gist
+jekyll
+rake
+rubocop
 PACKAGES
