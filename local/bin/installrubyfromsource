@@ -12,7 +12,21 @@ cd "$SOURCE"
 git fetch origin --tags
 git reset --hard
 
-sudo apt-get -y build-dep ruby2.5
+cat<<PACKAGES | xargs apt-get install -y
+autoconf
+bison
+build-essential
+curl
+git
+libffi-dev
+libgdbm-dev
+libncurses5-dev
+libreadline-dev
+libreadline-dev
+libssl-dev
+libyaml-dev
+zlib1g-dev
+PACKAGES
 
 git checkout "$TAG"
 autoconf
