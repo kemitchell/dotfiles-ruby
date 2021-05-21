@@ -1,0 +1,4 @@
+#!/bin/sh
+hash asdf || installasdf
+asdf plugin add ruby
+updateruby
