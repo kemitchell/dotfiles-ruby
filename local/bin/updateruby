@@ -1,2 +1,6 @@
 #!/bin/sh
+version="$(getcurrentrubyversion)"
+rbenv install "$version"
+rbenv global "$version"
+rbenv shell "$version"
 gem update
