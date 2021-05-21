@@ -3,12 +3,14 @@ set -e
 
 # Install rbenv.
 if ! [ -d ~/.rbenv ]; then
-  git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  echo "Cloning to ~/.rbenv."
+  git clone --quiethttps://github.com/rbenv/rbenv.git ~/.rbenv
   cd ~/.rbenv
 else
+  "Updating ~/.rbenv."
   cd ~/.rbenv
-  git fetch origin
-  git reset --hard origin/master
+  git fetch origin --quiet
+  git reset --quiet --hard origin/master
 fi
 src/configure
 make -C src
@@ -16,12 +18,18 @@ make -C src
 # Install ruby-build as rbenv plugin.
 plugin_dir="$(rbenv root)"/plugins/ruby-build
 if ! [ -d "$plugin_dir" ]; then
+  echo "Cloning ruby-build to plugins."
   mkdir -p "$plugin_dir"
   git clone https://github.com/rbenv/ruby-build.git "$plugin_dir"
 else
+  echo "Updating ruby-build plugin."
   cd "$plugin_dir"
   git fetch origin
   git reset --hard origin/master
 fi
 
-rbenv install "$(getcurrentrubyversion)"
+version="$(getcurrentrubyversion)"
+echo "Latest Ruby is $version."
+rbenv install "$version"
+rbenv shell "$version"
+installrubygems

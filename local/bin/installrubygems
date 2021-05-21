@@ -4,4 +4,5 @@ cat <<PACKAGES | xargs gem install
 	gist
 	jekyll
 	rake
+  rubocop
 PACKAGES
