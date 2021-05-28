@@ -1,10 +1,13 @@
 #!/bin/sh
 set -e
 
-sudo apt update
-# https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
-sudo apt autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+if command -v apt >/dev/null; then
+  sudo apt update
+  # https://github.com/rbenv/ruby-build/wiki#suggested-build-environment
+  sudo apt autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+elif command -v pacman >/dev/null; then
+  yes | sudo pacman -S bison libyaml readline zlib ncurses libffi libgdm libdbi
+fi
 
-hash asdf || installasdf
 asdf plugin add ruby
 updateruby
