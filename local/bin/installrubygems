@@ -1,5 +1,2 @@
 #!/bin/sh
-cat <<PACKAGES | xargs gem install
-bundler
-rubocop
-PACKAGES
+exec xargs -a ~/.default-gems gem install
