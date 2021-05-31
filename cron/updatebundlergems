@@ -15,7 +15,7 @@ trap cleanup EXIT
 git clone --quiet "$1" "$tmp"
 cd "$tmp"
 
-if ! bundler outdated >/dev/null 2>&1; then
-  commitcommand bundler update
-  git push origin
+if ! bundler outdated 2>&1 >/dev/null; then
+  commitcommand bundler update >/dev/null
+  git push --quiet origin
 fi
